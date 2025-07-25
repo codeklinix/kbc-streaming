@@ -1,14 +1,15 @@
 <?php
-// Database configuration
-define('DB_HOST', 'localhost');
-define('DB_USERNAME', 'root');
-define('DB_PASSWORD', ''); // Default XAMPP MySQL password is empty
-define('DB_NAME', 'streaming_website');
+// Database configuration - Railway environment variables
+define('DB_HOST', $_ENV['MYSQL_HOST'] ?? 'localhost');
+define('DB_USERNAME', $_ENV['MYSQL_USER'] ?? 'root');
+define('DB_PASSWORD', $_ENV['MYSQL_PASSWORD'] ?? '');
+define('DB_NAME', $_ENV['MYSQL_DATABASE'] ?? 'streaming_website');
+define('DB_PORT', $_ENV['MYSQL_PORT'] ?? '3306');
 
 // Create database connection
 try {
     $pdo = new PDO(
-        "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";charset=utf8mb4",
+        "mysql:host=" . DB_HOST . ";port=" . DB_PORT . ";dbname=" . DB_NAME . ";charset=utf8mb4",
         DB_USERNAME,
         DB_PASSWORD,
         [
