@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KBC + - Radio, TV, Podcasts & News</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Header -->
+    <header class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h1><i class="fas fa-broadcast-tower"></i> KBC +</h1>
+            </div>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="#home" class="nav-link active">Home</a></li>
+                    <li><a href="#radio" class="nav-link">Radio</a></li>
+                    <li><a href="#tv" class="nav-link">Live TV</a></li>
+                    <li><a href="#podcasts" class="nav-link">Podcasts</a></li>
+                    <li><a href="#news" class="nav-link">News</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+        <!-- Home Section -->
+        <section id="home" class="section active">
+            <div class="hero">
+                <div class="container">
+                    <h1>Welcome to KBC +</h1>
+                    <p>Your one-stop destination for live radio, TV streaming, podcasts, and breaking news</p>
+                    <div class="hero-buttons">
+                        <button class="btn btn-primary" onclick="showSection('radio')">
+                            <i class="fas fa-radio"></i> Listen to Radio
+                        </button>
+                        <button class="btn btn-secondary" onclick="showSection('tv')">
+                            <i class="fas fa-tv"></i> Watch Live TV
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Radio Stations Preview -->
+            <div class="home-section">
+                <div class="container">
+                    <div class="section-header">
+                        <h2><i class="fas fa-radio"></i> Radio Streaming</h2>
+                        <p>Listen to your favorite radio stations</p>
+                        <button class="btn btn-primary" onclick="showSection('radio')">
+                            View All Stations <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                    <div class="home-grid" id="home-radio-stations">
+                        <!-- Radio stations will be loaded here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Live TV Preview -->
+            <div class="home-section">
+                <div class="container">
+                    <div class="section-header">
+                        <h2><i class="fas fa-tv"></i> Live TV</h2>
+                        <p>Watch live television channels</p>
+                        <button class="btn btn-primary" onclick="showSection('tv')">
+                            View All Channels <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                    <div class="home-grid" id="home-tv-channels">
+                        <!-- TV channels will be loaded here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Podcasts Preview -->
+            <div class="home-section">
+                <div class="container">
+                    <div class="section-header">
+                        <h2><i class="fas fa-podcast"></i> Podcasts</h2>
+                        <p>Discover amazing podcast content</p>
+                        <button class="btn btn-primary" onclick="showSection('podcasts')">
+                            View All Podcasts <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                    <div class="home-grid" id="home-podcasts">
+                        <!-- Podcasts will be loaded here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- News Preview -->
+            <div class="home-section">
+                <div class="container">
+                    <div class="section-header">
+                        <h2><i class="fas fa-newspaper"></i> Latest News</h2>
+                        <p>Stay updated with breaking news</p>
+                        <button class="btn btn-primary" onclick="showSection('news')">
+                            View All Articles <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                    <div class="home-grid" id="home-news">
+                        <!-- News articles will be loaded here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Radio Section -->
+        <section id="radio" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2><i class="fas fa-radio"></i> Radio Stations</h2>
+                    <p>Listen to live radio streams from around the world</p>
+                </div>
+                
+                <div class="radio-controls">
+                    <div class="current-station">
+                        <div class="station-info">
+                            <h3 id="current-station-name">Select a Station</h3>
+                            <p id="current-station-desc">Choose a radio station to start listening</p>
+                        </div>
+                        <div class="audio-controls">
+                            <audio id="radio-player" controls style="display: none;">
+                                Your browser does not support the audio element.
+                            </audio>
+                            <div class="player-controls">
+                                <button id="play-pause-btn" class="control-btn" disabled>
+                                    <i class="fas fa-play"></i>
+                                </button>
+                                <button id="stop-btn" class="control-btn" disabled>
+                                    <i class="fas fa-stop"></i>
+                                </button>
+                                <div class="volume-control">
+                                    <i class="fas fa-volume-up"></i>
+                                    <input type="range" id="volume-slider" min="0" max="100" value="50">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stations-grid" id="radio-stations">
+                    <!-- Radio stations will be loaded here -->
+                </div>
+
+                <div class="schedule-section">
+                    <h3><i class="fas fa-calendar-alt"></i> Today's Schedule</h3>
+                    <div class="schedule-container" id="radio-schedule">
+                        <!-- Schedule will be loaded here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TV Section -->
+        <section id="tv" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2><i class="fas fa-tv"></i> Live TV</h2>
+                    <p>Watch live television channels online</p>
+                </div>
+
+                <div class="tv-player-container">
+                    <video id="tv-player" controls width="100%" style="display: none;">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="tv-placeholder">
+                        <i class="fas fa-tv"></i>
+                        <p>Select a channel to start watching</p>
+                    </div>
+                </div>
+
+                <div class="channels-grid" id="tv-channels">
+                    <!-- TV channels will be loaded here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Podcasts Section -->
+        <section id="podcasts" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2><i class="fas fa-podcast"></i> Podcasts</h2>
+                    <p>Discover and listen to your favorite podcasts</p>
+                </div>
+
+                <div class="podcast-player-container">
+                    <div class="current-episode">
+                        <div class="episode-info">
+                            <h3 id="current-episode-title">Select an Episode</h3>
+                            <p id="current-podcast-name">Choose a podcast episode to start listening</p>
+                        </div>
+                        <audio id="podcast-player" controls style="display: none;">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                </div>
+
+                <div class="podcasts-grid" id="podcasts-list">
+                    <!-- Podcasts will be loaded here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- News Section -->
+        <section id="news" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2><i class="fas fa-newspaper"></i> Latest News</h2>
+                    <p>Stay updated with the latest news and articles</p>
+                </div>
+
+                <div class="news-grid" id="news-articles">
+                    <!-- News articles will be loaded here -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>KBC +</h3>
+                    <p>Your ultimate streaming destination for radio, TV, podcasts, and news.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#radio">Radio</a></li>
+                        <li><a href="#tv">Live TV</a></li>
+                        <li><a href="#podcasts">Podcasts</a></li>
+                        <li><a href="#news">News</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Email: feedback@kbc.co.ke</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 KBC +. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
